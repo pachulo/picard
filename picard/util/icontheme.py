@@ -35,7 +35,6 @@ if 'XDG_CURRENT_DESKTOP' in os.environ:
     desktop = os.environ['XDG_CURRENT_DESKTOP'].lower()
     if desktop in ('gnome', 'unity'):
         _current_theme = (os.popen('dconf read /org/gnome/desktop/interface/icon-theme').read().strip()[1:-1]
-                          or os.popen('gconftool-2 -g /desktop/gnome/interface/icon_theme').read().strip()
                           or None)
 elif os.environ.get('KDE_FULL_SESSION'):
     _current_theme = (os.popen("kreadconfig --file kdeglobals --group Icons --key Theme --default crystalsvg").read().strip()
